@@ -8,9 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <%= csrf_meta_tags %>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,10 +18,22 @@
   <![endif]-->
 </head>
 
-<body>
-  <div id="wrapper">
-    <%= yield %>
-  </div>
+<body ng-app="eventsFeed">
+  <div id="wrapper" ng-view></div>
+
+  <script type="text/javascript">
+    window.__EVENTS_FEED_CATEGORIES__ = [
+      {id: 1, title: 'dashboard'},
+      {id: 2, title: 'shortcuts'},
+      {id: 3, title: 'sverview'},
+      {id: 4, title: 'events'},
+      {id: 5, title: 'about'},
+      {id: 6, title: 'services'},
+      {id: 7, title: 'contact'}
+    ]; 
+  </script>
+
+  <%= javascript_include_tag 'application'%>
 </body>
 
 </html>

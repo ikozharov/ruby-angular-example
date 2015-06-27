@@ -1,5 +1,6 @@
 .page-header {
   margin: 0px 0 20px;
+  text-transform: capitalize;
 }
 #wrapper {
     padding-left: 250px;
@@ -32,6 +33,7 @@
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
+    text-transform: capitalize;
 }
 .sidebar-nav li a {
     display: block;

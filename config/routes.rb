@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :users, only: :index
+      resources :categories, only: [:index, :create, :update, :destroy]
+      resources :events, only: [:index, :create, :update, :destroy]
+    end
+
+    root :to => redirect('/documentation/swagger/index.html')
+  end
+
   root 'main#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

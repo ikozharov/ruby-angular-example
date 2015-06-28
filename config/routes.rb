@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :users, only: :index
-      resources :categories, only: [:index, :create, :update, :destroy]
-      resources :events, only: [:index, :create, :update, :destroy]
+      resources :categories, only: :index
+      resources :events, only: [:index, :show]
     end
 
     root :to => redirect('/documentation/swagger/index.html')

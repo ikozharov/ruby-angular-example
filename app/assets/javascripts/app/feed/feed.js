@@ -1,4 +1,9 @@
-angular.module('eventsFeed.feed', ['ngRoute', 'eventsFeed.sidebar'])
+angular.module('eventsFeed.feed', [
+  'ngRoute',
+  'eventsFeed.sidebar',
+  'feedsHelper',
+  'eventsFeed.hamnurger'
+])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/categories/:category?', {
@@ -7,17 +12,20 @@ angular.module('eventsFeed.feed', ['ngRoute', 'eventsFeed.sidebar'])
       });
   }])
   .controller('feedController', [
+    '$rootScope',
     '$scope',
     '$routeParams',
     '$location',
-    function ($scope, $routeParams, $location) {
+    'feedsHelperFactory',
+    function ($rootScope, $scope, $routeParams, $location, helpers) {
       if (!$routeParams.category) {
         $location.path('/categories/' + $scope.categories[0].title); 
       }
 
-      $scope.categoryTitle = $routeParams.category;
+      $scope.currentCategory = 
+        helpers.getCurrentCategory($rootScope.categories, $routeParams.category);
 
-      $scope.events = [{
+      var events = [{
         title: 'Project One',
         subheading: 'Subheading',
         summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.',
@@ -48,5 +56,17 @@ angular.module('eventsFeed.feed', ['ngRoute', 'eventsFeed.sidebar'])
         summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.',
         thumb: 'http://placeimg.com/700/300/any'
       }];
+
+      $scope.events = [];
+
+      function loadMore() {
+        $scope.events = $scope.events.concat(events); 
+      }
+
+      $scope.onScroll = function () {
+        loadMore();
+      }
+
+      loadMore();
   }]);
 

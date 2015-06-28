@@ -3,7 +3,10 @@
     "name": "bower-rails generated vendor assets",
     "dependencies": {
       "angular": "~1.4.2",
-      "angular-route": "latest"
+      "angular-route": "latest",
+      "angular-loading-bar": "latest",
+      "angular-infinite-scroll": "latest",
+      "angular-animate": "latest"
     }
   }
 }

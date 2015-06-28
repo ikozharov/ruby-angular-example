@@ -19,17 +19,16 @@
 </head>
 
 <body ng-app="eventsFeed">
-  <div id="wrapper" ng-view></div>
+  <div ng-view class="angular-view"></div>
 
   <script type="text/javascript">
     window.__EVENTS_FEED_CATEGORIES__ = [
-      {id: 1, title: 'dashboard'},
-      {id: 2, title: 'shortcuts'},
-      {id: 3, title: 'sverview'},
-      {id: 4, title: 'events'},
-      {id: 5, title: 'about'},
-      {id: 6, title: 'services'},
-      {id: 7, title: 'contact'}
+      {id: 1, title: 'dashboard', subtitle: 'dashboard\'s subtitle'},
+      {id: 2, title: 'shortcuts', subtitle: 'shortcuts\' subtitle'},
+      {id: 3, title: 'events', subtitle: 'events\' subtitle'},
+      {id: 4, title: 'about', subtitle: 'about\'s subtitle'},
+      {id: 5, title: 'services', subtitle: 'services\' subtitle'},
+      {id: 6, title: 'contact', subtitle: 'contact\' subtitle'}
     ]; 
   </script>
 

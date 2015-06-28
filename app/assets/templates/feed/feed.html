@@ -1,33 +1,38 @@
-<div sidebar></div>
-
-<div id="page-content-wrapper" class="container">
+<wrapper>
+  <div class="category-header">
     <div class="row">
-        <div class="col-lg-12">
-          <h1 class="page-header">
-            {{categoryTitle}}
-            <small>Secondary Text</small>
-          </h1>
-        </div>
+      <div class="col-lg-12">
+        <span hamnurger></span>
+        <h1 class="page-header">
+          {{currentCategory.title}}
+          <small>{{currentCategory.subtitle}}</small>
+        </h1>
+      </div>
     </div>
 
+    <hr />
+  </div>
+
+  <div class="category-feed" dr-window-infinite-scroll="onScroll()">
     <article ng-repeat="event in events track by $index">
       <div class="row">
-          <div class="col-md-7">
-              <a href="#">
-                <img class="img-responsive" ng-src="{{event.thumb + $index}}" alt="">
-              </a>
-          </div>
-          <div class="col-md-5">
-              <h3>{{event.title}}</h3>
-              <h4>{{event.subheading}}</h4>
-              <p>{{event.summary}}</p>
-              <a class="btn btn-primary" href="#">
-                View Project
-                <span class="glyphicon glyphicon-chevron-right"></span>
-              </a>
-          </div>
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-responsive" ng-src="{{event.thumb + $index}}" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>{{event.title}}</h3>
+          <h4>{{event.subheading}}</h4>
+          <p>{{event.summary}}</p>
+          <a class="btn btn-primary" href="#">
+            View Project
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
       </div>
-      
+
       <hr />
     </article>
-</div>
+  </div>
+</wrapper>

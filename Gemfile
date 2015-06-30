@@ -22,6 +22,7 @@ gem 'responders', '~> 2.0'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'puma'
+gem 'rack-timeout'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

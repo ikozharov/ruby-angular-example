@@ -8,7 +8,14 @@ module Api::V1
       limit  = params[:limit]  || 5
       offset = params[:offset] || 0
 
-      q = Event.where(category_id: params[:category_id])
+      if params.has_key?("user_id")
+        q = Event.joins(:users).where({
+          category_id: params[:category_id],
+          users: { id: params[:user_id] }
+        })
+      else
+        q = Event.where(category_id: params[:category_id])
+      end
 
       if limit.to_i == 0
         @events = q

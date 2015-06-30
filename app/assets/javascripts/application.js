@@ -4,6 +4,7 @@
 //= require angular-animate/angular-animate
 //= require angular-local-storage
 //= require angular-loading-bar
+//= require moment
 //= require angular-infinite-scroll
 //= require angular-rails-templates
 //= require_tree ../templates

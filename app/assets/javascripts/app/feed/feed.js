@@ -1,7 +1,8 @@
 angular.module('eventsFeed.feed', [
   'ngRoute',
   'feedsHelper',
-  'eventsFeed.hamnurger'
+  'eventsFeed.hamnurger',
+  'filters.date'
 ])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -30,7 +31,8 @@ angular.module('eventsFeed.feed', [
       var limit = 5,
           offset = 0,
           onLoading = false,
-          stopLoadMore = false;
+          stopLoadMore = false,
+          userId = helpers.getUserIdByFullName($scope.users, $location.search().user);
 
       $scope.onScroll = function () {
         if (onLoading || stopLoadMore) {
@@ -39,7 +41,7 @@ angular.module('eventsFeed.feed', [
 
         onLoading = true;
 
-        helpers.getEventsByCategory($scope.currentCategory.id, limit, offset)
+        helpers.getEventsByCategory($scope.currentCategory.id, limit, offset, userId)
           .success(function (data) {
             $scope.events = $scope.events.concat(data);
             offset += data.length;
@@ -49,9 +51,5 @@ angular.module('eventsFeed.feed', [
       };
 
       $scope.onScroll();
-
-      $rootScope.$watch('currentUser', function (n) {
-        console.log(n);
-      }, true);
   }]);
 

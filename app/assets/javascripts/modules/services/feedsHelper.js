@@ -8,10 +8,29 @@ angular.module('feedsHelper', [])
 
         return filtered[0];
       },
-      getEventsByCategory: function (categoryId, limit, offset) {
+      getEventsByCategory: function (categoryId, limit, offset, userId) {
+        var params = {
+          category_id: categoryId,
+          limit: limit,
+          offset: offset,
+          user_id: userId
+        };
+
         return $http.get('/api/events', {
-          params: { category_id: categoryId, limit: limit, offset: offset }
+          params: params
         });
+      },
+      getUserIdByFullName: function (users, name) {
+        //name is user.firstName.toLowerCase() + user.lastName.toLowerCase() or undefined
+        if (!name) {
+          return;
+        }
+
+        var index = _.findIndex(users, function(user) {
+          return !!user.id && user.firstName.toLowerCase() + user.lastName.toLowerCase() === name;
+        });
+
+        return users[index].id;
       }
     };
   }]);

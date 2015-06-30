@@ -8,7 +8,8 @@
       "angular-loading-bar": "latest",
       "angular-infinite-scroll": "latest",
       "angular-animate": "latest",
-      "angular-local-storage": "latest"
+      "angular-local-storage": "latest",
+      "moment": "latest"
     }
   }
 }

@@ -23,13 +23,25 @@
 
   <script type="text/javascript">
     window.__EVENTS_FEED_CATEGORIES__ = [
-      {id: 1, title: 'dashboard', subtitle: 'dashboard\'s subtitle'},
-      {id: 2, title: 'shortcuts', subtitle: 'shortcuts\' subtitle'},
-      {id: 3, title: 'events', subtitle: 'events\' subtitle'},
-      {id: 4, title: 'about', subtitle: 'about\'s subtitle'},
-      {id: 5, title: 'services', subtitle: 'services\' subtitle'},
-      {id: 6, title: 'contact', subtitle: 'contact\' subtitle'}
-    ]; 
+    <% @catrgories.each do |category| %>
+      {
+        id: <%= category.id %>,
+        title: "<%= category.title %>",
+        subtitle: "<%= category.subtitle %>"
+      },
+    <% end %>
+    ];
+
+    window.__EVENTS_FEED_USERS__ = [
+      { id: null, firstName: 'all' },
+    <% @users.each do |user| %>
+      {
+        id: <%= user.id %>,
+        firstName: "<%= user.first_name %>",
+        lastName: "<%= user.last_name %>"
+      },
+    <% end %>
+    ];
   </script>
 
   <%= javascript_include_tag 'application'%>

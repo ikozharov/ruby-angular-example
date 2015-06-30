@@ -1,4 +1,4 @@
-angular.module('eventsFeed.wrapper',[])
+angular.module('eventsFeed.wrapper',['eventsFeed.userSelector', 'eventsFeed.sidebar'])
   .directive('wrapper', function() {
     return {
       restrict: 'E',

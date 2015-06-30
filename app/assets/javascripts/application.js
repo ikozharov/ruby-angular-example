@@ -1,6 +1,8 @@
 //= require angular/angular
+//= require lodash
 //= require angular-route/angular-route
 //= require angular-animate/angular-animate
+//= require angular-local-storage
 //= require angular-loading-bar
 //= require angular-infinite-scroll
 //= require angular-rails-templates

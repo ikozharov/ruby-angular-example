@@ -1,14 +1,20 @@
 module Api::V1
   class EventsController < ApiController
     def index
-      limit  = params[:limit].to_i if params.has_key?("limit")
-      offset = params[:offset].to_i if params.has_key?("offset")
+      unless params.has_key?("category_id")
+        render :status => 400, :text => "400 Bad Request"
+      end
 
-      limit  ||= 5
-      offset ||= 0
+      limit  = params[:limit]  || 5
+      offset = params[:offset] || 0
 
-      @events = Event.all if limit == 0
-      @events = Event.limit(limit).offset(offset) unless limit == 0
+      q = Event.where(category_id: params[:category_id])
+
+      if limit.to_i == 0
+        @events = q
+      else
+        @events = q.offset(offset).limit(limit)
+      end
     end
 
     def show

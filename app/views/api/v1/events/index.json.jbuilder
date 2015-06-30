@@ -4,7 +4,11 @@ json.array! @events do |event|
   json.subheading event.subheading
   json.summary event.summary
   json.thumb event.thumb
-  json.start_at event.start_at
+  json.startAt event.start_at
 
-  json.users event.users, :id, :first_name, :last_name
+  json.users event.users do |user|
+    json.id user.id
+    json.firstName user.first_name
+    json.lastName user.last_name
+  end
 end

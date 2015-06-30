@@ -9,12 +9,12 @@ users = [
 categories = []
 
 6.times do |i|
- categories.push Category.create(title: "Category ##{i}", subtitle: "Category ##{i} subtitle")
+ categories.push Category.create(title: "category#{i}", subtitle: "category#{i} subtitle")
 end
 
 50.times do |i|
   event = Event.create({
-    title: "Project ##{i}",
+    title: "Event ##{i}",
     subheading: "Subheading",
     thumb: 'http://placeimg.com/700/300/any',
     start_at: DateTime.new(2015,9,1),

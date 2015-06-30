@@ -25,10 +25,15 @@
           <h3>{{event.title}}</h3>
           <h4>{{event.subheading}}</h4>
           <p>{{event.summary}}</p>
-          <a class="btn btn-primary" href="#">
-            View Project
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
+          <p>
+            <b>Speakers:</b>
+            <span ng-repeat="user in event.users">
+              {{user.firstName}} {{user.lastName}}<i ng-if="event.users.length -1 !== $index">,</i>
+            </span>
+          </p>
+          <p>
+            <b>Start at:</b> {{event.startAt}}
+          </p>
         </div>
       </div>
 

@@ -1,1 +1,1 @@
-json.catrgories @catrgories
+json.catrgories @catrgories, :id, :title, :subtitle

@@ -2,11 +2,13 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
+      "lodash": "latest",
       "angular": "~1.4.2",
       "angular-route": "latest",
       "angular-loading-bar": "latest",
       "angular-infinite-scroll": "latest",
-      "angular-animate": "latest"
+      "angular-animate": "latest",
+      "angular-local-storage": "latest"
     }
   }
 }

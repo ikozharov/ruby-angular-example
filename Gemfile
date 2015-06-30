@@ -21,6 +21,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'responders', '~> 2.0'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'puma'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,3 +42,9 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
+ruby "2.2.2"

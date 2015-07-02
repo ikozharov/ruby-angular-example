@@ -7,8 +7,8 @@
       <div user-selector></div>
     </li>
 
-    <li ng-repeat="category in categories" ng-class="{active: isActive(category)}">
-      <a href="/categories/{{category.title}}">{{category.title}}</a>
-    </li>
+    <ul class="sidebar-nav-group first-node">
+      <li ng-repeat="category in categories" ng-include="'sidebar/item.html'" class="nav-item"></li>
+    </ul>
 </ul>
 

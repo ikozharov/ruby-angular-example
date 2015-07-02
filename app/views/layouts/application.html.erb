@@ -22,15 +22,7 @@
   <div ng-view class="angular-view"></div>
 
   <script type="text/javascript">
-    window.__EVENTS_FEED_CATEGORIES__ = [
-    <% @catrgories.each do |category| %>
-      {
-        id: <%= category.id %>,
-        title: "<%= category.title %>",
-        subtitle: "<%= category.subtitle %>"
-      },
-    <% end %>
-    ];
+    window.__EVENTS_FEED_CATEGORIES__ = <%= @catrgories.to_json.html_safe %>;
 
     window.__EVENTS_FEED_USERS__ = [
       { id: null, firstName: 'all' },

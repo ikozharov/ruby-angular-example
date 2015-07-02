@@ -19,7 +19,7 @@ angular.module('eventsFeed.feed', [
     'feedsHelperFactory',
     function ($rootScope, $scope, $routeParams, $location, helpers) {
       if (!$routeParams.category) {
-        $location.path('/categories/' + $scope.categories[0].title);
+        $location.path('/categories/' + helpers.getFrstCategoryTitle($scope.categories));
         return false;
       }
 
@@ -47,6 +47,8 @@ angular.module('eventsFeed.feed', [
             offset += data.length;
             stopLoadMore = data.length < limit;
             onLoading = false;
+          }).error(function () {
+            $location.path('/categories/' + helpers.getFrstCategoryTitle($scope.categories));
           });
       };
 

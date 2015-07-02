@@ -1,0 +1,11 @@
+<a href="/categories/{{category.title}}" ng-if="!category.children">{{category.title}}</a>
+<a ng-click="category.isShow = !category.isShow" ng-if="category.children">
+  {{category.title}}
+  <span ng-if="!category.isShow" class="glyphicon glyphicon-menu-right"></span>
+  <span ng-if="category.isShow" class="glyphicon glyphicon-menu-down"></span>
+</a>
+<ul class="sidebar-nav-group" ng-if="category.children" ng-show="category.isShow">
+  <li ng-repeat="category in category.children" ng-include="'sidebar/item.html'"
+    ng-class="{active: isActive(category)}" class="nav-item">
+  </li>
+</ul>

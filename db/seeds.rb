@@ -9,10 +9,15 @@ users = [
 categories = []
 
 6.times do |i|
- categories.push Category.create(title: "category#{i}", subtitle: "category#{i} subtitle")
+  categories.push Category.create(title: "category#{i + 1}", subtitle: "category#{i + 1} subtitle")
 end
 
-50.times do |i|
+20.times do |i|
+  parent_id = [1,2,3,4,5,6].sample
+  categories.push Category.create(title: "category#{i + 7}", subtitle: "category#{i + 7} subtitle", parent_id: parent_id)
+end
+
+100.times do |i|
   event = Event.create({
     title: "Event ##{i}",
     subheading: "Subheading",
@@ -22,7 +27,7 @@ end
     full_text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.'
   })
 
-  categories.sample.events << event
+  categories.last(20).sample.events << event
   users.sample.events << event
   users.sample.events << event
 end

@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20150628181720) do
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
+    t.integer  "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title"

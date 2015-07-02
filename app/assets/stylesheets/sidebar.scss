@@ -19,6 +19,10 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
+    .glyphicon {
+        font-size: 10px;
+    }
 }
 .sidebar-nav li {
     text-indent: 20px;
@@ -57,8 +61,15 @@
         }
     }
 }
-
 .user-selector {
     width: 210px;
     margin: 0 auto 15px;
+}
+.sidebar-nav-group {
+    margin: 0 15px 0;
+    padding: 0;
+    list-style: none;
+}
+.first-node {
+    margin: 0;
 }
